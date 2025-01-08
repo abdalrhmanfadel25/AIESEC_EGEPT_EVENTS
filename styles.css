@@ -1,0 +1,257 @@
+:root {
+    --aiesec-blue: #037ef3;
+    --aiesec-orange: #f85a40;
+    --aiesec-light-blue: #e8f3ff;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.nav-link {
+    position: relative;
+    color: #333;
+    text-decoration: none;
+    padding: 8px 16px;
+    transition: color 0.3s;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--aiesec-blue);
+    transition: width 0.3s;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    animation: slideIn 0.3s ease;
+}
+
+.nav-item:hover .dropdown-menu {
+    display: block;
+}
+
+.team-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.team-card .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(3, 126, 243, 0.9);
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.team-card:hover .overlay {
+    opacity: 1;
+}
+
+.timeline-item {
+    position: relative;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    margin: 20px 0;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.timeline-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: var(--aiesec-blue);
+    border-radius: 50%;
+    left: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+@media (max-width: 768px) {
+    .mobile-menu {
+        display: none;
+    }
+
+    .mobile-menu.active {
+        display: block;
+    }
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.py-16 {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.bg-gray-100 {
+    background-color: #f7fafc;
+}
+
+.max-w-5xl {
+    max-width: 80rem;
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.text-3xl {
+    font-size: 1.875rem;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mb-12 {
+    margin-bottom: 3rem;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.left-0 {
+    left: 0;
+}
+
+.md\:left-1\/2 {
+    left: 50%;
+}
+
+.h-full {
+    height: 100%;
+}
+
+.bg-blue-200 {
+    background-color: #bfdbfe;
+}
+
+.transform {
+    transform: translateX(-50%);
+}
+
+.ml-12 {
+    margin-left: 3rem;
+}
+
+.md\:ml-0 {
+    margin-left: 0;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+    transition: background 0.3s;
+}
+
+.timeline-item:hover {
+    background-color: rgba(0, 0, 0, 0.05); /* Light background on hover */
+    border-radius: 0.5rem; /* Rounded corners on hover */
+}
+
+.text-blue-600 {
+    color: #3b82f6;
+}
+
+.text-lg {
+    font-size: 1.125rem;
+}
+
+.mt-1 {
+    margin-top: 0.25rem;
+}
+
+.text-gray-600 {
+    color: #4b5563;
+}
+
+.mt-2 {
+    margin-top: 0.5rem;
+}
+
+.md\:ml-auto {
+    margin-left: auto; /* Aligns to the right */
+}
+
+.md\:mr-auto {
+    margin-right: auto; /* Aligns to the left */
+}
+
+/* Media Query for Responsiveness */
+@media (min-width: 768px) {
+    .timeline-item:nth-child(odd) {
+        margin-left: 0; /* Align left */
+        margin-right: auto; /* Push right side */
+    }
+
+    .timeline-item:nth-child(even) {
+        margin-left: auto; /* Align right */
+        margin-right: 0; /* Push left side */
+    }
+}
+.timeline-item p {
+    transition: display 0s linear 0.5s, opacity 0.5s; /* If using opacity */
+    opacity: 0;
+}
+
+.timeline-item:hover p {
+    display: block; /* This will be handled by JavaScript */
+    opacity: 1;
+}
+
